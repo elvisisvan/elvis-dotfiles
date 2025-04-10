@@ -1,13 +1,14 @@
 termux-setup-storage
 ln -siv /sdcard/src-elvis ~
-ln -siv /sdcard/src-elvis/elvis-notes/termux/aliases.md ~/.aliases
-ln -siv /sdcard/src-elvis/elvis-notes/termux/bashrc.md ~/.bashrc
-ln -siv /sdcard/src-elvis/elvis-notes/termux/profile.md ~/.profile
-ln -siv /sdcard/src-elvis/elvis-notes/termux/zshrc.md ~/.zshrc
-ln -siv /sdcard/src-elvis/elvis-notes/termux/inputrc.md ~/.inputrc
+ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/aliases.md ~/.aliases
+ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/bashrc.md ~/.bashrc
+ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/profile.md ~/.profile
+ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/profile.md ~/.zshenv
+ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/zshrc.md ~/.zshrc
+ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/inputrc.md ~/.inputrc
+ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/gitconfig.md ~/.gitconfig
+ln -sfv /sdcard/src-elvis/elvis-dotfiles/termux/dottermux/termux.properties ~/.termux
 ln -siv /sdcard/src-elvis/elvis-dotfiles/nvim ~/.config
-ln -siv /sdcard/src-elvis/elvis-notes/termux/gitconfig.md ~/.gitconfig
-ln -sfv /sdcard/src-elvis/elvis-notes/termux/dottermux/termux.properties ~/.termux
 
 pkg update -y
 pkg upgrade -y
