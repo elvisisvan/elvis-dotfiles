@@ -1,4 +1,4 @@
-#~/.zshrc
+# .zshrc
 
 # ======================================================================
 # Path Configuration
@@ -88,19 +88,6 @@ setopt AUTO_RESUME          # Resume existing jobs instead of creating new ones
 setopt PROMPT_SUBST         # Enable parameter expansion in prompts
 
 # ======================================================================
-# Color Support
-# ======================================================================
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# ======================================================================
 # History Configuration
 # ======================================================================
 HISTFILE=~/.zsh_history
@@ -159,6 +146,19 @@ bindkey '^[[F' end-of-line          # End key
 bindkey '^[[3~' delete-char         # Delete key
 bindkey '^[[1;5C' forward-word      # Ctrl + right arrow
 bindkey '^[[1;5D' backward-word     # Ctrl + left arrow
+
+# ======================================================================
+# Color Support
+# ======================================================================
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 # ======================================================================
 # Prompt Configuration

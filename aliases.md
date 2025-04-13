@@ -36,7 +36,7 @@ alias defaultedge='xdg-settings set default-web-browser microsoft-edge.desktop'
 alias defaultfirefox='xdg-settings set default-web-browser firefox.desktop'
 alias dusize='sudo du -sh'
 alias e=exit
-alias echopath='echo $PATH | tr ":" "\n"'
+alias echopath='echo $PATH | tr ":" "\n" | sort | nl'
 
 alias ff=fastfetch
 alias fp='flatpak'
@@ -77,7 +77,7 @@ alias lsoflisten='lsof -i -P -n | grep LISTEN'
 alias logout='loginctl kill-session $XDG_SESSION_ID'
 alias killadb='adb kill-server'
 alias myip='curl ipinfo.io/json'
-alias myipp='curl https://ipapi.co/json'
+alias myipp='curl ipapi.co/json'
 alias mountfedora='sudo ~/Documents/mountfedora40.sh'
 alias netstatlisten="sudo netstat -tulpn | grep -E ':(80|443|[0-9]{1,3})' | grep LISTEN"
 alias norda='nordvpn account'

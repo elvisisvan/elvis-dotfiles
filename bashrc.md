@@ -1,4 +1,4 @@
-#~/.bashrc
+# .bashrc
 
 # If not running interactively, don't do anything
 case $- in
@@ -69,6 +69,11 @@ nano ~/.zshrc:\
 kate ~/.bashrc:\
 kate ~/.zshrc:\
 "
+
+# Dynamically create HISTIGNORE from aliases file
+if [ -f ~/.aliases ]; then
+  HISTIGNORE="$(grep -oP "(?<=['\"]).*?(?=['\"])" ~/.aliases | tr '\n' ':')$HISTIGNORE"
+fi
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.

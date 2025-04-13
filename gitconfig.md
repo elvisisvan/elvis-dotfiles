@@ -1,3 +1,5 @@
+# .gitconfig
+
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
