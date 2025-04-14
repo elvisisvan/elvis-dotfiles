@@ -108,8 +108,9 @@ reboot|\
 st|\
 l|\
 ll|\
-lg|\
 ls -l|\
+gs|\
+lg|\
 lazygit|\
 cd|\
 cr|\
