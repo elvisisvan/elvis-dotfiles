@@ -12,10 +12,10 @@ alias cdinstalledproot='cd ~/../usr/var/lib/proot-distro/installed-rootfs'
 alias cf=cpufetch
 alias cr=clear
 alias dusize='sudo du -sh'
-alias dcrm='sh ~/.termux/tasker/disable-chrome.sh'
-alias ecrm='sh ~/.termux/tasker/enable-chrome.sh'
-alias dyt='sh ~/.termux/tasker/disable-youtube.sh'
-alias eyt='sh ~/.termux/tasker/enable-youtube.sh'
+alias dcrm='sh ~/src-elvis/elvis-dotfiles/termux/disable-chrome.sh'
+alias ecrm='sh ~/src-elvis/elvis-dotfiles/termux/enable-chrome.sh'
+alias dyt='sh ~/src-elvis/elvis-dotfiles/termux/disable-youtube.sh'
+alias eyt='sh ~/src-elvis/elvis-dotfiles/termux/enable-youtube.sh'
 alias echopath='echo $PATH | tr ":" "\n"'
 alias e=exit
 
