@@ -102,8 +102,6 @@ st|\
 sl|\
 l|\
 ll|\
-lg|\
-gs|\
 ls -l|\
 logout|\
 lazygit|\
