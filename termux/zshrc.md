@@ -112,6 +112,7 @@ ls -l|\
 gs|\
 lg|\
 lazygit|\
+ff|\
 cd|\
 cr|\
 bqt|\
