@@ -8,6 +8,7 @@ ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/zshrc.md ~/.zshrc
 ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/inputrc.md ~/.inputrc
 ln -siv /sdcard/src-elvis/elvis-dotfiles/termux/gitconfig.md ~/.gitconfig
 ln -sfv /sdcard/src-elvis/elvis-dotfiles/termux/dottermux/termux.properties ~/.termux
+ln -sfv /sdcard/src-elvis/elvis-dotfiles/termux/dottermux/font.ttf ~/.termux
 ln -siv /sdcard/src-elvis/elvis-dotfiles/nvim ~/.config
 
 pkg update -y
