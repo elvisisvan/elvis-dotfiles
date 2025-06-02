@@ -11,6 +11,7 @@ alias agrep='apt list --installed | grep'
 alias cdinstalledproot='cd ~/../usr/var/lib/proot-distro/installed-rootfs'
 alias cf=cpufetch
 alias cr=clear
+alias crarch='chroot /data/local/linux-elvis /bin/bash -c "su - elvis"'
 alias dusize='sudo du -sh'
 alias dcrm='sh ~/src-elvis/elvis-dotfiles/termux/disable-chrome.sh'
 alias ecrm='sh ~/src-elvis/elvis-dotfiles/termux/enable-chrome.sh'
@@ -87,4 +88,12 @@ findwp() {
 	local path=${2:-.} # use second args as path, default to current dir
 	sudo find '$path' -iname '*$1*'
 }
+
+mountarch() {
+    mount -t proc /proc /data/local/linux-elvis/proc
+    mount --make-rshared --rbind /sys /data/local/linux-elvis/sys
+    mount --rbind /dev /data/local/linux-elvis/dev
+    mount --rbind /dev/pts /data/local/linux-elvis/dev/pts
+}
+
 
