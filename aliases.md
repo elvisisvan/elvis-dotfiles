@@ -167,12 +167,3 @@ testexist() {
     fi
 }
 
-vncstart() {
-  Xvfb :0 -screen 0 1440x900x24 -nolisten tcp &
-  sleep 1
-  DISPLAY=:0 setsid startlxqt >/dev/null 2>&1 &
-  sleep 2
-  x11vnc -display :0 -rfbauth ~/.vnc/passwd -forever -shared -bg -noipv6 -noshm
-}
-
-
