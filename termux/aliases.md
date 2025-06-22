@@ -12,6 +12,7 @@ alias cdinstalledproot='cd ~/../usr/var/lib/proot-distro/installed-rootfs'
 alias cf=cpufetch
 alias cr=clear
 alias crarch='chroot /data/local/linux-elvis /bin/bash -c "su - elvis"'
+alias checkmount='mount | grep /data/local/linux-elvis'
 alias dusize='sudo du -sh'
 alias dcrm='sh ~/src-elvis/elvis-dotfiles/termux/disable-chrome.sh'
 alias ecrm='sh ~/src-elvis/elvis-dotfiles/termux/enable-chrome.sh'
