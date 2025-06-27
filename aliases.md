@@ -158,6 +158,7 @@ alias vram='free -h && swapon --show && zramctl --output-all'
 alias xamppmanager='sudo /opt/lampp/manager-linux-x64.run'
 alias yss='yay -Ss'
 alias yi='yay -Sii'
+alias yin='yay -S'
 
 testexist() {
     if [ -e "$1" ]; then
