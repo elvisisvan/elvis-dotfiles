@@ -67,6 +67,6 @@ fi
 
 eval "$(fzf --bash)"
 
-bash LinuxDroidmenu.sh
+[[ -f ~/LinuxDroidmenu.sh ]] && . ~/LinuxDroidmenu.sh
 
 

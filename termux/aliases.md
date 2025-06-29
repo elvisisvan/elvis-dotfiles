@@ -95,6 +95,9 @@ mountarch() {
     mount --make-rshared --rbind /sys /data/local/linux-elvis/sys
     mount --rbind /dev /data/local/linux-elvis/dev
     mount --rbind /dev/pts /data/local/linux-elvis/dev/pts
+    mkdir /data/local/linux-elvis/dev/shm
+    mount -t tmpfs shm /data/local/linux-elvis/dev/shm -o size=256M
+    mount -o remount,suid /data
 }
 
 
