@@ -168,3 +168,14 @@ testexist() {
     fi
 }
 
+ffr() {
+    cd ~/fakeroot-1.31
+    ./bootstrap
+    ./configure --prefix=/opt/fakeroot --libdir=/opt/fakeroot/libs --disable-static --with-ipc=tcp
+    make
+    sudo make install
+    export PATH="/opt/fakeroot/bin:$PATH"
+    cd
+}
+
+
