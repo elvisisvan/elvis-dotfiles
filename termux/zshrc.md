@@ -78,9 +78,9 @@ setopt HIST_IGNORE_DUPS     # Don't record duplicated entries
 setopt HIST_IGNORE_SPACE    # Don't record entries starting with space
 
 # Globbing and Files
-setopt EXTENDED_GLOB        # Extended globbing capabilities
-setopt NO_CASE_GLOB         # Case insensitive globbing
-setopt NO_CASE_MATCH        # Case insensitive matching
+#setopt EXTENDED_GLOB        # Extended globbing capabilities
+#setopt NO_CASE_GLOB         # Case insensitive globbing
+#setopt NO_CASE_MATCH        # Case insensitive matching
 
 # Command Correction
 setopt CORRECT              # Try to correct command spelling
