@@ -18,27 +18,22 @@ export PATH
 # ZSH Configurations
 # ======================================================================
 export ZSH=$HOME/.oh-my-zsh
+
 ZSH_THEME=fino-time
+
 plugins=(git gh fzf tldr zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting)
-
-[[ -d '${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete' ]] && . '${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
-
-[[ -d '${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions' ]] && . '${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh'
-
-if [[ -d '${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting' ]]; then
-  source '${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
-fi
-
 source $ZSH/oh-my-zsh.sh
-source <(fzf --zsh)
-[[ -f ~/.aliases ]] && . ~/.aliases
 
+autoload -Uz compinit
+compinit
+
+source <(fzf --zsh)
+
+[[ -f ~/.aliases ]] && . ~/.aliases
 
 # ======================================================================
 # Completion System
 # ======================================================================
-#autoload -Uz compinit
-#compinit
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' completer _complete _ignored _files _fzf
 zstyle ':completion:*:*:*:*' fzf:use-history yes
