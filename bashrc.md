@@ -51,9 +51,11 @@ export HISTIGNORE="*alias*:\
 e:\
 reboot:\
 rfrs:\
+ff:\
 st:\
 sl:\
 l:\
+lg:\
 ll:\
 ls -l:\
 logout:\
