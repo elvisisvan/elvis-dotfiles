@@ -35,20 +35,26 @@ export PROMPT_COMMAND='history -a; history -n'
 
 # ignore commands from bash history
 export HISTIGNORE="*alias*:\
-l: \
+l:\
+lg:\
 ll:\
 ls -l:\
 cd:\
 cr:\
+ff:\
 lazygit:\
 bqt:\
 exit:\
+e:\
 zsh:\
 bash:\
-e:\
 rfrs:\
 st:\
 "
+# Dynamically create HISTIGNORE from aliases file
+if [ -f ~/.aliases ]; then
+    HISTIGNORE="$(grep -oP "(?<=['\"]).*?(?=['\"])" ~/.aliases | tr '\n' ':')$HISTIGNORE
+fi
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
