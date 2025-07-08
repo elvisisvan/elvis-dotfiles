@@ -13,7 +13,7 @@ ln -siv /sdcard/src-elvis/elvis-dotfiles/nvim ~/.config
 
 pkg update -y
 pkg upgrade -y
-pkg in x11-repo root-repo android-tools tsu nala lsd gh git lazygit man broot proot proot-distro cpufetch fastfetch debianutils speedtest-go luarocks -y
+pkg in x11-repo root-repo android-tools tsu nala lsd gh git lazygit yazi man broot proot proot-distro cpufetch fastfetch debianutils luarocks -y
 
 termux-reload-settings
 exec $SHELL -l
