@@ -21,12 +21,36 @@ export PATH
 [[ -f usr/share/doc/find-the-command/ftc.zsh ]] && . /usr/share/doc/find-the-command/ftc.zsh
 
 # ======================================================================
-# ZSH Configurations
+# OMZ
 # ======================================================================
 export ZSH="$HOME/.oh-my-zsh"
+
 # ZSH_THEME='random'
 ZSH_THEME='fino-time'
 # themes: fino-time,jonathan,ys,junkfood,3den,adben,xiong-chiamiov-plus,re5et
+
+plugins=(git gh node nvm npm command-not-found tldr fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
+
+# ======================================================================
+# Completion System
+# ======================================================================
+autoload -Uz compinit; compinit
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' completer _complete _ignored _files _fzf
+zstyle ':completion:*:*:*:*' fzf:use-history yes
+zstyle ':completion:*' fzf:history yes
+zstyle ':completion:*' fzf:preview 'bat {}'
+zstyle ':autocomplete:*' default-context history-incremental-search-backward
+zstyle ':autocomplete:*' min-input 1
+
+source <(fzf --zsh)
+
+#source /home/linuxbrew/.linuxbrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# ======================================================================
+# P10K
+# ======================================================================
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -35,22 +59,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-plugins=(git fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting)
-
-[[ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete" ]] && source "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-
-[[ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]] && source "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-if [[ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]]; then
-  source "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
-fi
-
-source $ZSH/oh-my-zsh.sh
-source <(fzf --zsh)
-#source /home/linuxbrew/.linuxbrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-# Aliases
-[[ -f ~/.aliases ]] && . ~/.aliases
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ======================================================================
 # Shell Options (setopt)
@@ -88,7 +98,7 @@ setopt AUTO_RESUME          # Resume existing jobs instead of creating new ones
 setopt PROMPT_SUBST         # Enable parameter expansion in prompts
 
 # ======================================================================
-# History Configuration
+# History
 # ======================================================================
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
@@ -120,22 +130,13 @@ kate ~/.zshrc|\
 git reset HEAD --hard|\
 )"
 
+# custom aliases
+[[ -f ~/.aliases ]] && . ~/.aliases
+
 # ignore commands from .aliases
 if [ -f ~/.aliases ]; then
   HISTORY_IGNORE="($(grep -oP "(?<=['\"]).*?(?=['\"])" ~/.aliases | tr '\n' '|'))$HISTORY_IGNORE"
 fi
-
-# ======================================================================
-# Completion System
-# ======================================================================
-autoload -Uz compinit; compinit
-zstyle ':completion:*' use-cache yes
-zstyle ':completion:*' completer _complete _ignored _files _fzf
-zstyle ':completion:*:*:*:*' fzf:use-history yes
-zstyle ':completion:*' fzf:history yes
-zstyle ':completion:*' fzf:preview 'bat {}'
-zstyle ':autocomplete:*' default-context history-incremental-search-backward
-zstyle ':autocomplete:*' min-input 1
 
 # ======================================================================
 # Key Bindings
@@ -163,10 +164,13 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # ======================================================================
-# Prompt Configuration
+# Prompt
 # ======================================================================
 autoload -U colors && colors
 #PROMPT=$'%F{red}\n┌─$([[ $? != 0 ]] && echo "[%F{yellow}✗%F{red}]─")%(#.%F{red}root%F{black}@%F{cyan}%m.%F{blue}%n%F{black}@%F{cyan}%m)%F{red}─%T─[%F{green}%~%F{red}]\n└──╼ %f%F{yellow}%#%f '
+
+# Starship
+#eval "$(starship init zsh)"
 
 # ======================================================================
 # Development Tools
@@ -175,27 +179,21 @@ autoload -U colors && colors
 # pipx completion
 command -v register-python-argcomplete &>/dev/null && eval "$(register-python-argcomplete pipx)" 2>/dev/null
 
-# ======================================================================
-# Prompt
-# ======================================================================
-
 # nvm (node version manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Starship
-#eval "$(starship init zsh)"
+# deno completions
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
+
+# ======================================================================
+# Miscellaneous
+# ======================================================================
 
 # Zoxide
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # Warpify subshell
 #printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 
