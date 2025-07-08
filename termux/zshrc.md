@@ -15,25 +15,21 @@ path=(/usr/bin $HOME/.local/bin $HOME/bin $path)
 export PATH
 
 # ======================================================================
-# ZSH Configurations
+# OMZ
 # ======================================================================
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME=fino-time
 
-plugins=(git gh fzf tldr zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git gh command-not-found tldr fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
-
-autoload -Uz compinit
-compinit
-
-source <(fzf --zsh)
-
-[[ -f ~/.aliases ]] && . ~/.aliases
 
 # ======================================================================
 # Completion System
 # ======================================================================
+autoload -Uz compinit
+compinit
+
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' completer _complete _ignored _files _fzf
 zstyle ':completion:*:*:*:*' fzf:use-history yes
@@ -42,17 +38,7 @@ zstyle ':completion:*' fzf:preview 'bat {}'
 zstyle ':autocomplete:*' default-context history-incremental-search-backward
 zstyle ':autocomplete:*' min-input 1
 
-# ======================================================================
-# Key Bindings
-# ======================================================================
-# bindkey -e                          # Use emacs key bindings
-bindkey '^[[A' up-line-or-search    # Up arrow for history search
-bindkey '^[[B' down-line-or-search  # Down arrow for history search
-bindkey '^[[H' beginning-of-line    # Home key
-bindkey '^[[F' end-of-line          # End key
-bindkey '^[[3~' delete-char         # Delete key
-bindkey '^[[1;5C' forward-word      # Ctrl + right arrow
-bindkey '^[[1;5D' backward-word     # Ctrl + left arrow
+source <(fzf --zsh)
 
 # ======================================================================
 # Shell Options (setopt)
@@ -116,6 +102,25 @@ zsh|\
 bash|\
 git reset HEAD --hard|\
 )"
+
+[[ -f ~/.aliases ]] && . ~/.aliases
+
+# ignore commands from .aliases
+if [ -f ~/.aliases ]; then
+  HISTORY_IGNORE="($(grep -oP "(?<=['\"]).*?(?=['\"])" ~/.aliases | tr '\n' '|'))$HISTORY_IGNORE"
+fi
+
+# ======================================================================
+# Key Bindings
+# ======================================================================
+# bindkey -e                          # Use emacs key bindings
+bindkey '^[[A' up-line-or-search    # Up arrow for history search
+bindkey '^[[B' down-line-or-search  # Down arrow for history search
+bindkey '^[[H' beginning-of-line    # Home key
+bindkey '^[[F' end-of-line          # End key
+bindkey '^[[3~' delete-char         # Delete key
+bindkey '^[[1;5C' forward-word      # Ctrl + right arrow
+bindkey '^[[1;5D' backward-word     # Ctrl + left arrow
 
 # ======================================================================
 # Color Support
