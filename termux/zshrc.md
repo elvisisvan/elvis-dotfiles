@@ -22,13 +22,13 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=fino-time
 
 plugins=(git gh command-not-found tldr fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting)
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh # omz handles compinit
 
 # ======================================================================
 # Completion System
 # ======================================================================
-autoload -Uz compinit
-compinit
+#autoload -Uz compinit
+#compinit
 
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' completer _complete _ignored _files _fzf
