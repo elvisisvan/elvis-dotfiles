@@ -91,13 +91,24 @@ findwp() {
 }
 
 mountarch() {
+    mount -o remount,dev,suid /data
     mount -t proc /proc /data/local/linux-elvis/proc
     mount --make-rshared --rbind /sys /data/local/linux-elvis/sys
     mount --rbind /dev /data/local/linux-elvis/dev
     mount --rbind /dev/pts /data/local/linux-elvis/dev/pts
     mkdir /data/local/linux-elvis/dev/shm
     mount -t tmpfs shm /data/local/linux-elvis/dev/shm -o size=256M
-    mount -o remount,suid /data
+    mkdir /data/local/linux-elvis/vendor
+    mount --rbind /vendor /data/local/linux-elvis/vendor
+}
+
+umountarch() {
+    umount /data/local/linux-elvis/proc
+    umount /data/local/linux-elvis/sys
+    umount /data/local/linux-elvis/dev/pts
+    umount /data/local/linux-elvis/dev/shm
+    umount /data/local/linux-elvis/dev
+    mount -o remount,dev,nosuid /data
 }
 
 
