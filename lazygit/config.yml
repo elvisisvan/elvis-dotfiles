@@ -1,0 +1,26 @@
+gui:
+  theme:
+    selectedLineBgColor:
+      - reverse
+#  nerdFontsVersion: "3" # Or "2" if you're using older Nerd Fonts
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+#  log:
+#    showGraph: "always"
+
+os:
+  editPreset: "nvim"
+
+#promptToReturnFromSubprocess: false
+
+keybinding:
+  universal:
+    quit: 'q'
+    confirm: '<enter>'
+    quitWithoutChangingDirectory: 'Q'
+
+#notARepository: "quit" # what lazygit should do when not in a git repo
+
