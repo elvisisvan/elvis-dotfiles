@@ -53,7 +53,7 @@ st:\
 "
 # Dynamically create HISTIGNORE from aliases file
 if [ -f ~/.aliases ]; then
-    HISTIGNORE="$(grep -oP "(?<=['\"]).*?(?=['\"])" ~/.aliases | tr '\n' ':')$HISTIGNORE
+    HISTIGNORE="$(grep -oP "(?<=['\"]).*?(?=['\"])" ~/.aliases | tr '\n' ':')$HISTIGNORE"
 fi
 
 if [ -x /usr/bin/dircolors ]; then
