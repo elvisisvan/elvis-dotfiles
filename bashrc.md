@@ -15,8 +15,14 @@ esac
 # Source global definitions (RHEL-based)
 [[ -f /etc/bashrc ]] && . /etc/bashrc
 
-# Aliases
-[[ -f ~/.aliases ]] && . ~/.aliases
+# fzf keybindings and completion
+# This ensures fzf's enhancements for Ctrl+R and other features are active
+if [ -f /usr/share/fzf/key-bindings.bash ]; then
+  source /usr/share/fzf/key-bindings.bash
+fi
+if [ -f /usr/share/fzf/completion.bash ]; then
+  source /usr/share/fzf/completion.bash
+fi
 
 # command-not-found helper (find-the-command-git)
 [[ -f "/usr/share/doc/find-the-command/ftc.bash" ]] && . "/usr/share/doc/find-the-command/ftc.bash"
@@ -71,6 +77,9 @@ nano ~/.zshrc:\
 kate ~/.bashrc:\
 kate ~/.zshrc:\
 "
+
+# Aliases
+[[ -f ~/.aliases ]] && . ~/.aliases
 
 # Dynamically create HISTIGNORE from aliases file
 if [ -f ~/.aliases ]; then
