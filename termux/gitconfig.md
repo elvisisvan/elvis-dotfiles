@@ -10,7 +10,7 @@
 [safe]
 	directory = *
 [core]
-	editor = nano
+	editor = nvim
 	pager = delta
 [maintenance]
 	repo = /storage/emulated/0/src-elvis/elvis-notes
