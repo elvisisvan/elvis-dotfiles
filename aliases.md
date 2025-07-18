@@ -177,7 +177,7 @@ vncstart() {
 }
 
 ffr() {
-    cd ~/fakeroot-1.31
+    cd ~/fakeroot-*
     ./bootstrap
     ./configure --prefix=/opt/fakeroot --libdir=/opt/fakeroot/libs --disable-static --with-ipc=tcp
     make
