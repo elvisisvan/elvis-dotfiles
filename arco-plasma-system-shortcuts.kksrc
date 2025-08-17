@@ -15,11 +15,11 @@ Switch to Next Keyboard Layout=Meta+Space
 [StandardShortcuts]
 AboutApp=
 AboutKDE=
-Activate Next Tab=Ctrl+PgDown; Ctrl+]
+Activate Next Tab=Ctrl+]; Ctrl+PgDown
 Activate Previous Tab=Ctrl+[; Ctrl+PgUp
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
-Back=Back; Alt+Left
+Back=Alt+Left; Back
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
@@ -27,9 +27,9 @@ Clear=
 Close=Ctrl+Esc; Ctrl+W
 ConfigureNotifications=
 ConfigureToolbars=
-Copy=Ctrl+C; Ctrl+Ins
+Copy=Ctrl+Ins; Ctrl+C
 CreateFolder=Ctrl+Shift+N
-Cut=Shift+Del; Ctrl+X
+Cut=Ctrl+X; Shift+Del
 DeleteFile=Shift+Del
 DeleteWordBack=Ctrl+Backspace
 DeleteWordForward=Ctrl+Del
@@ -61,10 +61,10 @@ New=Ctrl+N
 Next=PgDown
 NextCompletion=Ctrl+Down
 Open=Ctrl+O
-OpenContextMenu=Shift+F10; Menu
+OpenContextMenu=Menu; Shift+F10
 OpenMainMenu=F10
 OpenRecent=
-Paste=Ctrl+V; Shift+Ins
+Paste=Shift+Ins; Ctrl+V
 Paste Selection=Ctrl+Shift+Ins
 Preferences=Ctrl+Shift+,
 PrevCompletion=Ctrl+Up
@@ -213,16 +213,16 @@ Toggle Window Raise/Lower=
 ToggleCurrentThumbnail=Meta+Ctrl+T
 TrackMouse=
 Walk Through Windows=Alt+Tab
-Walk Through Windows (Reverse)=Alt+Shift+Tab
-Walk Through Windows Alternative=
+Walk Through Windows (Reverse)=
+Walk Through Windows Alternative=Meta+Tab
 Walk Through Windows Alternative (Reverse)=
-Walk Through Windows of Current Application=Meta+Tab
-Walk Through Windows of Current Application (Reverse)=Meta+Shift+Tab
-Walk Through Windows of Current Application Alternative=
+Walk Through Windows of Current Application=Alt+Shift+Tab
+Walk Through Windows of Current Application (Reverse)=
+Walk Through Windows of Current Application Alternative=Meta+Shift+Tab
 Walk Through Windows of Current Application Alternative (Reverse)=
 Window Above Other Windows=
 Window Below Other Windows=
-Window Close=Alt+F4; Meta+Q
+Window Close=Meta+Q; Alt+F4
 Window Custom Quick Tile Bottom=
 Window Custom Quick Tile Left=
 Window Custom Quick Tile Right=
@@ -299,7 +299,7 @@ Window to Screen 6=
 Window to Screen 7=
 disableInputCapture=Meta+Shift+Esc
 view_actual_size=Meta+0
-view_zoom_in=Meta++; Meta+=
+view_zoom_in=Meta+=; Meta++
 view_zoom_out=Meta+-
 
 [mediacontrol][Global Shortcuts]
@@ -325,7 +325,7 @@ _launch=Meta+T
 
 [org.kde.krunner.desktop][Global Shortcuts]
 RunClipboard=Alt+Shift+F2
-_launch=Alt+Space; Search
+_launch=Search; Alt+Space
 
 [org.kde.kscreen.desktop][Global Shortcuts]
 ShowOSD=Display
@@ -341,12 +341,17 @@ ActiveWindowScreenShot=Ctrl+Print
 CurrentMonitorScreenShot=
 FullScreenScreenShot=Shift+Print
 OpenWithoutScreenshot=
-RecordRegion=Meta+R; Meta+Shift+R
+RecordRegion=Meta+Shift+R; Meta+R
 RecordScreen=
 RecordWindow=
 RectangularRegionScreenShot=Ctrl+Shift+Print
 WindowUnderCursorScreenShot=Meta+Ctrl+Print
-_launch=Meta+Shift+S; Print
+_launch=Print; Meta+Shift+S
+
+[org.kde.touchpadshortcuts.desktop][Global Shortcuts]
+DisableTouchpad=Touchpad Off
+EnableTouchpad=Touchpad On
+ToggleTouchpad=Meta+Ctrl+Zenkaku Hankaku; Touchpad Toggle
 
 [org_kde_powerdevil][Global Shortcuts]
 Decrease Keyboard Brightness=Keyboard Brightness Down
@@ -361,7 +366,7 @@ PowerOff=Power Off
 Sleep=Sleep
 Toggle Keyboard Backlight=Keyboard Light On/Off
 Turn Off Screen=
-powerProfile=Meta+P; Battery
+powerProfile=Battery; Meta+P
 
 [plasmashell][Global Shortcuts]
 activate application launcher=Meta
@@ -382,6 +387,7 @@ clipboard_action=Meta+Ctrl+X
 cycle-panels=Meta+Alt+P
 cycleNextAction=
 cyclePrevAction=
+edit_clipboard=
 manage activities=
 next activity=
 previous activity=Meta+Shift+A
@@ -398,7 +404,7 @@ toggle do not disturb=
 _launch=Meta+B
 
 [systemsettings.desktop][Global Shortcuts]
-_launch=Tools; Meta+S
+_launch=Meta+S; Tools
 kcm-kscreen=
 kcm-lookandfeel=
 kcm-powerdevilprofilesconfig=
